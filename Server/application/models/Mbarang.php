@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mbarang extends CI_Model {
-    // membuat method untuk tampil data
+    // membuat model untuk tampil data
     function get_data() {
         $this->db->select("
             id as id_barang,
@@ -21,4 +21,6 @@ class Mbarang extends CI_Model {
         $query = $this->db->get()->result();
         return $query;
     }
+
+
 }

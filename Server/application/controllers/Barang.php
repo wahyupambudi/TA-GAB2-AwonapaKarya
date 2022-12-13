@@ -5,6 +5,7 @@ require APPPATH . "libraries/Server.php";
 
 class Barang extends Server {
 
+    // membuat fungsi get data
     function service_get()
     {
         // test menggunakan kd_brg
@@ -26,6 +27,25 @@ class Barang extends Server {
             $this->response(array("barang" => $brg), 200);
         } else {
             $this->response(array("status" => "Data Tidak Ditemukan"), 404);
+        }
+    }
+
+    // membuat fungsi untuk delete_data
+    function service_delete() {
+        // memanggil model barang
+        $this->load->model("Mbarang", "model", TRUE);
+
+        // ambil parameter token (id_brg)
+        $token = $this->delete("id_brg");
+
+        // panggil fungsi delete_data
+        $result = $this->model->delete_data(base64_encode($token));
+
+        // proses kondisi if
+        if($result == 'y') {
+            $this->response(array("status" => "Data Barang Berhasil di Hapus"), 200);
+        } else {
+            $this->response(array("status" => "Data Barang Gagal di Hapus"), 200);
         }
     }
 }
