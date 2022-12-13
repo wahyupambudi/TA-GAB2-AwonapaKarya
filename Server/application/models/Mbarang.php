@@ -22,5 +22,28 @@ class Mbarang extends CI_Model {
         return $query;
     }
 
+    // membuat model untuk delete data
+    function delete_data($token) {
+        // select kd_brg
+        $this->db->select("kd_brg");
+        $this->db->from("tb_barang");
+        
+        // merubah kd_brg menjadi base64 dengan variabel token
+        $this->db->where("TO_BASE64(kd_brg) = '$token'");
 
+        // eksekusi query
+        $query = $this->db->get()->result();
+
+        // kondisi jika kd_brg ditemukan
+        if(count($query) == 1) {
+            $this->db->where("TO_BASE64(kd_brg) = '$token'");
+            $this->db->delete("tb_barang");
+            
+            // berikan nilai result
+            $result = "y";
+        } else {
+            $result = "n";
+        }
+        return $result;
+    }
 }

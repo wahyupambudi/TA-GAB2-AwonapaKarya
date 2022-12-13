@@ -35,14 +35,14 @@ class Barang extends Server {
         // memanggil model barang
         $this->load->model("Mbarang", "model", TRUE);
 
-        // ambil parameter token (id_brg)
-        $token = $this->delete("id_brg");
+        // ambil parameter token (kd_brg)
+        $token = $this->delete("kd_brg");
 
         // panggil fungsi delete_data
         $result = $this->model->delete_data(base64_encode($token));
 
         // proses kondisi if
-        if($result == 'y') {
+        if($result == "y") {
             $this->response(array("status" => "Data Barang Berhasil di Hapus"), 200);
         } else {
             $this->response(array("status" => "Data Barang Gagal di Hapus"), 200);
