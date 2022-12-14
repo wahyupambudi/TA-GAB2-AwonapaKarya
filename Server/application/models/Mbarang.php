@@ -16,7 +16,7 @@ class Mbarang extends CI_Model {
         ");
 
         $this->db->from("tb_barang");
-        $this->db->order_by("kd_brg", "DESC");
+        $this->db->order_by("kd_brg", "ASC");
 
         $query = $this->db->get()->result();
         return $query;
