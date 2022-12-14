@@ -12,7 +12,6 @@ class Barang extends Server {
         $kd_brg = $this->get('kd_brg');
 
         // panggil model Mbarang
-        // model itu alias ketika di panggil cok
         $this->load->model("Mbarang", "model", TRUE);
 
         if ($kd_brg == '') {
@@ -33,6 +32,39 @@ class Barang extends Server {
     // membuat fungsi post data
     function service_post() {
         
+        // panggil model Mbarang
+        $this->load->model("Mbarang", "model", TRUE);
+
+        // ambil parameter data yang akan di post
+        $data = array(
+            "kd_brg" => $this -> post("kd_brg"),
+            "nm_brg" => $this -> post("nm_brg"),
+            "spek_brg" => $this -> post("spek_brg"),
+            "jml_brg" => $this -> post("jml_brg"),
+            "kondisi_brg" => $this -> post("kondisi_brg"),
+            "tgl_buy_brg" => $this -> post("tgl_buy_brg"),
+            "harga_brg" => $this -> post("harga_brg"),
+            "token" => base64_encode($this->post("kd_brg"))
+        );
+
+        // panggil method save_data dari model barang
+        $result = $this->model->save_data(
+            $data["kd_brg"],
+            $data["nm_brg"],
+            $data["spek_brg"],
+            $data["jml_brg"],
+            $data["kondisi_brg"],
+            $data["tgl_buy_brg"],
+            $data["harga_brg"],
+            $data["token"]
+        );
+
+        // kondisi dari penyesuaian dari Mbarang
+        if($result == 0) {
+            $this->response(array("status" => "Data Barang Berhasil di Simpan"), 200);
+        } else {
+            $this->response(array("status" => "Data Barang Gagal di Simpan"), 200);
+        }
     }
 
 
