@@ -37,13 +37,13 @@ class Barang extends Server {
 
         // ambil parameter data yang akan di post
         $data = array(
-            "kd_brg" => $this -> post("kd_brg"),
-            "nm_brg" => $this -> post("nm_brg"),
-            "spek_brg" => $this -> post("spek_brg"),
-            "jml_brg" => $this -> post("jml_brg"),
-            "kondisi_brg" => $this -> post("kondisi_brg"),
-            "tgl_buy_brg" => $this -> post("tgl_buy_brg"),
-            "harga_brg" => $this -> post("harga_brg"),
+            "kd_brg" => $this->post("kd_brg"),
+            "nm_brg" => $this->post("nm_brg"),
+            "spek_brg" => $this->post("spek_brg"),
+            "jml_brg" => $this->post("jml_brg"),
+            "kondisi_brg" => $this->post("kondisi_brg"),
+            "tgl_buy_brg" => $this->post("tgl_buy_brg"),
+            "harga_brg" => $this->post("harga_brg"),
             "token" => base64_encode($this->post("kd_brg"))
         );
 
