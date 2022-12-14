@@ -67,6 +67,42 @@ class Barang extends Server {
         }
     }
 
+    // membuat fungsi untuk update data
+    function service_put() {
+        // memanggil model barang
+        $this->load->model("Mbarang", "model", TRUE);
+
+        $data = array(
+            "kd_brg" => $this->put("kd_brg"),
+            "nm_brg" => $this->put("nm_brg"),
+            "spek_brg" => $this->put("spek_brg"),
+            "jml_brg" => $this->put("jml_brg"),
+            "kondisi_brg" => $this->put("kondisi_brg"),
+            "tgl_buy_brg" => $this->put("tgl_buy_brg"),
+            "harga_brg" => $this->put("harga_brg"),
+            "token" => base64_encode($this->put("kd_brg"))
+        );
+
+        // panggil model update_data
+        $result = $this->model->update_data(
+            $data["kd_brg"],
+            $data["nm_brg"],
+            $data["spek_brg"],
+            $data["jml_brg"],
+            $data["kondisi_brg"],
+            $data["tgl_buy_brg"],
+            $data["harga_brg"],
+            $data["token"]
+        );
+
+        // kondisi penyesuaian Mbarang
+        if($result == 0) {
+            $brg = $this->model->get_data();
+            $this->response(array("status" => "Data Barang Berhasil di Update", "barang" => $brg), 200);
+        } else {
+            $this->response(array("status" => "Data Barang Gagal di Update"), 200);
+        }
+    }
 
     // membuat fungsi untuk delete_data
     function service_delete() {

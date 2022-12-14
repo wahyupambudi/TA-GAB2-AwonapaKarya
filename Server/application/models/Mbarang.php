@@ -55,6 +55,38 @@ class Mbarang extends CI_Model {
         return $result;
     }
 
+    // membuat model untuk input data
+    function update_data($kd_brg, $nm_brg, $spek_brg, $jml_brg, $kondisi_brg, $tgl_buy_brg, $harga_brg, $token) {
+         // check kd_brg apakah ada di table
+        $this->db->select("kd_brg");
+        $this->db->from("tb_barang");
+        $this->db->where("TO_BASE64(kd_brg) != '$token' AND kd_brg = '$kd_brg'");
+
+        // eksekusi query
+        $query = $this->db->get()->result();
+
+        // kondisi jika kd_brg tidak di temukan
+        if(count($query) == 0) {
+            $data = array(
+                "kd_brg" => $kd_brg,
+                "nm_brg" => $nm_brg,
+                "spek_brg" => $spek_brg,
+                "jml_brg" => $jml_brg,
+                "kondisi_brg" => $kondisi_brg,
+                "tgl_buy_brg" => $tgl_buy_brg,
+                "harga_brg" => $harga_brg
+            );
+
+            $this->db->where("TO_BASE64(kd_brg) = '$token'");
+            $this->db->update("tb_barang", $data);
+            $result = 0;
+        } else {
+            $result = 1;
+        }
+
+        return $result;
+    }
+
     // membuat model untuk delete data
     function delete_data($token) {
         // select kd_brg
