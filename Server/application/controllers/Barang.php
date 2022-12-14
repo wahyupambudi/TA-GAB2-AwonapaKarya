@@ -30,6 +30,12 @@ class Barang extends Server {
         }
     }
 
+    // membuat fungsi post data
+    function service_post() {
+        
+    }
+
+
     // membuat fungsi untuk delete_data
     function service_delete() {
         // memanggil model barang
