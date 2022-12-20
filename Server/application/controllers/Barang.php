@@ -1,13 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 require APPPATH . "libraries/Server.php";
 
-class Barang extends Server {
+class Barang extends Server
+{
 
     // membuat fungsi get data
     function service_get()
     {
+
+        $token = $this->delete("kd_brg");
+
         // test menggunakan kd_brg
         $kd_brg = $this->get('kd_brg');
 
@@ -16,13 +20,13 @@ class Barang extends Server {
 
         if ($kd_brg == '') {
             // panggil fungsi get_data
-            $brg = $this->model->get_data();
+            $brg = $this->model->get_data(base64_encode($token));
             $this->response(array("barang" => $brg), 200);
         } else if ($kd_brg != '') {
             // query where
             $this->db->where("kd_brg", $kd_brg);
             // panggil fungsi get_data
-            $brg = $this->model->get_data();
+            $brg = $this->model->get_data(base64_encode($token));
             $this->response(array("barang" => $brg), 200);
         } else {
             $this->response(array("status" => "Data Tidak Ditemukan"), 404);
@@ -30,8 +34,9 @@ class Barang extends Server {
     }
 
     // membuat fungsi post data
-    function service_post() {
-        
+    function service_post()
+    {
+
         // panggil model Mbarang
         $this->load->model("Mbarang", "model", TRUE);
 
@@ -60,7 +65,7 @@ class Barang extends Server {
         );
 
         // kondisi dari penyesuaian dari Mbarang
-        if($result == 0) {
+        if ($result == 0) {
             $this->response(array("status" => "Data Barang Berhasil di Simpan"), 200);
         } else {
             $this->response(array("status" => "Data Barang Gagal di Simpan"), 200);
@@ -68,7 +73,8 @@ class Barang extends Server {
     }
 
     // membuat fungsi untuk update data
-    function service_put() {
+    function service_put()
+    {
         // memanggil model barang
         $this->load->model("Mbarang", "model", TRUE);
 
@@ -96,7 +102,7 @@ class Barang extends Server {
         );
 
         // kondisi penyesuaian Mbarang
-        if($result == 0) {
+        if ($result == 0) {
             $brg = $this->model->get_data();
             $this->response(array("status" => "Data Barang Berhasil di Update", "barang" => $brg), 200);
         } else {
@@ -105,7 +111,8 @@ class Barang extends Server {
     }
 
     // membuat fungsi untuk delete_data
-    function service_delete() {
+    function service_delete()
+    {
         // memanggil model barang
         $this->load->model("Mbarang", "model", TRUE);
 
@@ -116,7 +123,7 @@ class Barang extends Server {
         $result = $this->model->delete_data(base64_encode($token));
 
         // proses kondisi if
-        if($result == "y") {
+        if ($result == "y") {
             $this->response(array("status" => "Data Barang Berhasil di Hapus"), 200);
         } else {
             $this->response(array("status" => "Data Barang Gagal di Hapus"), 200);
