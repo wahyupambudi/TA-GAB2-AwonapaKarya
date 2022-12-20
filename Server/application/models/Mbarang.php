@@ -18,9 +18,11 @@ class Mbarang extends CI_Model
         ");
 
         $this->db->from("tb_barang");
+
         if (!empty($token)) {
-            $this->db->where("TO_BASE64(kd_brg) = '$token' OR TO_BASE64(nm_brg) = '$token' ");
+            $this->db->where("TO_BASE64(kd_brg) = '$token'");
         }
+
         $this->db->order_by("kd_brg", "ASC");
 
         $query = $this->db->get()->result();

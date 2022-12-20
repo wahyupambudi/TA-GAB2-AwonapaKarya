@@ -86,7 +86,7 @@ class Barang extends Server
             "kondisi_brg" => $this->put("kondisi_brg"),
             "tgl_buy_brg" => $this->put("tgl_buy_brg"),
             "harga_brg" => $this->put("harga_brg"),
-            "token" => base64_encode($this->put("kd_brg"))
+            "token" => base64_encode($this->put("token"))
         );
 
         // panggil model update_data
@@ -103,8 +103,7 @@ class Barang extends Server
 
         // kondisi penyesuaian Mbarang
         if ($result == 0) {
-            $brg = $this->model->get_data();
-            $this->response(array("status" => "Data Barang Berhasil di Update", "barang" => $brg), 200);
+            $this->response(array("status" => "Data Barang Berhasil di Update"), 200);
         } else {
             $this->response(array("status" => "Data Barang Gagal di Update"), 200);
         }
