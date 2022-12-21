@@ -14,7 +14,8 @@ class Mbarang extends CI_Model
             jml_brg as jml_barang,
             kondisi_brg as kondisi_barang,
             tgl_buy_brg as tgl_buy,
-            harga_brg as harga_barang
+            harga_brg as harga_barang,
+            img_brg as img_barang
         ");
 
         $this->db->from("tb_barang");
@@ -30,7 +31,7 @@ class Mbarang extends CI_Model
     }
 
     // membuat model untuk post data barang
-    function save_data($kd_brg, $nm_brg, $spek_brg, $jml_brg, $kondisi_brg, $tgl_buy_brg, $harga_brg, $token)
+    function save_data($kd_brg, $nm_brg, $spek_brg, $jml_brg, $kondisi_brg, $tgl_buy_brg, $harga_brg, $img_brg, $token)
     {
         // check kd_brg apakah ada di table
         $this->db->select("kd_brg");
@@ -50,7 +51,8 @@ class Mbarang extends CI_Model
                 "jml_brg" => $jml_brg,
                 "kondisi_brg" => $kondisi_brg,
                 "tgl_buy_brg" => $tgl_buy_brg,
-                "harga_brg" => $harga_brg
+                "harga_brg" => $harga_brg,
+                "img_brg" => $img_brg
             );
 
             // proses simpan data
@@ -63,7 +65,7 @@ class Mbarang extends CI_Model
     }
 
     // membuat model untuk input data
-    function update_data($kd_brg, $nm_brg, $spek_brg, $jml_brg, $kondisi_brg, $tgl_buy_brg, $harga_brg, $token)
+    function update_data($kd_brg, $nm_brg, $spek_brg, $jml_brg, $kondisi_brg, $tgl_buy_brg, $harga_brg, $img_brg, $token)
     {
         // check kd_brg apakah ada di table
         $this->db->select("kd_brg");
@@ -82,7 +84,8 @@ class Mbarang extends CI_Model
                 "jml_brg" => $jml_brg,
                 "kondisi_brg" => $kondisi_brg,
                 "tgl_buy_brg" => $tgl_buy_brg,
-                "harga_brg" => $harga_brg
+                "harga_brg" => $harga_brg,
+                "img_brg" => $img_brg
             );
 
             $this->db->where("TO_BASE64(kd_brg) = '$token'");

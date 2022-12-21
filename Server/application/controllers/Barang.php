@@ -6,6 +6,14 @@ require APPPATH . "libraries/Server.php";
 class Barang extends Server
 {
 
+    // membuat constructor untuk model
+    public function __construct()
+    {
+        parent::__construct();
+        // Your own constructor code
+        $this->load->model("Mbarang", "model", TRUE);
+    }
+
     // membuat fungsi get data
     function service_get()
     {
@@ -14,9 +22,6 @@ class Barang extends Server
 
         // test menggunakan kd_brg
         $kd_brg = $this->get('kd_brg');
-
-        // panggil model Mbarang
-        $this->load->model("Mbarang", "model", TRUE);
 
         if ($kd_brg == '') {
             // panggil fungsi get_data
@@ -36,10 +41,6 @@ class Barang extends Server
     // membuat fungsi post data
     function service_post()
     {
-
-        // panggil model Mbarang
-        $this->load->model("Mbarang", "model", TRUE);
-
         // ambil parameter data yang akan di post
         $data = array(
             "kd_brg" => $this->post("kd_brg"),
@@ -49,6 +50,7 @@ class Barang extends Server
             "kondisi_brg" => $this->post("kondisi_brg"),
             "tgl_buy_brg" => $this->post("tgl_buy_brg"),
             "harga_brg" => $this->post("harga_brg"),
+            "img_brg" => $this->post("img_brg"),
             "token" => base64_encode($this->post("kd_brg"))
         );
 
@@ -61,6 +63,7 @@ class Barang extends Server
             $data["kondisi_brg"],
             $data["tgl_buy_brg"],
             $data["harga_brg"],
+            $data["img_brg"],
             $data["token"]
         );
 
@@ -75,9 +78,6 @@ class Barang extends Server
     // membuat fungsi untuk update data
     function service_put()
     {
-        // memanggil model barang
-        $this->load->model("Mbarang", "model", TRUE);
-
         $data = array(
             "kd_brg" => $this->put("kd_brg"),
             "nm_brg" => $this->put("nm_brg"),
@@ -86,6 +86,7 @@ class Barang extends Server
             "kondisi_brg" => $this->put("kondisi_brg"),
             "tgl_buy_brg" => $this->put("tgl_buy_brg"),
             "harga_brg" => $this->put("harga_brg"),
+            "img_brg" => $this->put("img_brg"),
             "token" => base64_encode($this->put("token"))
         );
 
@@ -98,6 +99,7 @@ class Barang extends Server
             $data["kondisi_brg"],
             $data["tgl_buy_brg"],
             $data["harga_brg"],
+            $data["img_brg"],
             $data["token"]
         );
 
@@ -112,9 +114,6 @@ class Barang extends Server
     // membuat fungsi untuk delete_data
     function service_delete()
     {
-        // memanggil model barang
-        $this->load->model("Mbarang", "model", TRUE);
-
         // ambil parameter token (kd_brg)
         $token = $this->delete("kd_brg");
 
