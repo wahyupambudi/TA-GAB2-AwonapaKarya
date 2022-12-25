@@ -86,7 +86,7 @@ class Barang extends Server
             "kondisi_brg" => $this->put("kondisi_brg"),
             "tgl_buy_brg" => $this->put("tgl_buy_brg"),
             "harga_brg" => $this->put("harga_brg"),
-            "img_brg" => $this->put("img_brg"),
+            // "img_brg" => $this->put("img_brg"),
             "token" => base64_encode($this->put("token"))
         );
 
@@ -99,7 +99,7 @@ class Barang extends Server
             $data["kondisi_brg"],
             $data["tgl_buy_brg"],
             $data["harga_brg"],
-            $data["img_brg"],
+            // $data["img_brg"],
             $data["token"]
         );
 
