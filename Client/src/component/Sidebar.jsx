@@ -5,34 +5,37 @@ import { IoPerson, IoPricetag, IoHome, IoLogOut } from "react-icons/io5";
 const Sidebar = () => {
   return (
     <div>
-      <aside className="menu pl-2 has-shadow">
-  <p className="menu-label">
-    Data User
+      <aside class="menu pl-2 has-shadow">
+  <p class="menu-label">
+    General
   </p>
-
-  <ul className="menu-list">
-  <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
-
+  <ul class="menu-list">
+    <li><NavLink to={"/dashboard"}><IoHome/> Dashboard</NavLink></li>
+  </ul>
+  <p class="menu-label">
+    Administration
+  </p>
+  <ul class="menu-list">
     <li>
-      <a className="is-active">Manage Users</a>
+      <a class=""><IoPerson/> Manage Users</a>
       <ul>
-        <li><a>Admin</a></li>
-        <li><a>Operator</a></li>
-        <li><a>Ketua Jurusan</a></li>
+        <li><NavLink to={"/admin"}>Admin</NavLink></li>
+        <li><NavLink to={"/operator"}>Operator</NavLink></li>
+        <li><NavLink to={"/kajur"}>Ketua Jurusan</NavLink></li>
       </ul>
     </li>
   </ul>
-
-  <p className="menu-label">
-    BELANJA
+  <p class="menu-label">
+    Belanja
   </p>
-  <ul className="menu-list">
-    <li><NavLink to={"/modal"}>Barang Modal</NavLink></li>
-    <li><NavLink to={"/modal"}>Barang Habis Pakai </NavLink></li>
+  <ul class="menu-list">
+    <li><NavLink to={"/barangm"}>Barang Modal</NavLink></li>
+    <li><a>Habis Pakai</a></li>
   </ul>
 </aside>
     </div>
+
+    
   )
 }
-
 export default Sidebar
