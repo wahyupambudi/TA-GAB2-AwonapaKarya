@@ -11,6 +11,37 @@ const perintah = "npm install";
 console.log(caraPakai + perintah);
 ```
 
+#### HTTP Request Client
+#### LOGIN dan CRUD USER
+```console
+GET : http://109.123.238.13:2024/users
+PATCH : http://109.123.238.13:2024/users/id
+POST : http://109.123.238.13:2024/users
+
+POST : http://109.123.238.13:2024/login
+GET : http://109.123.238.13:2024/sessi
+DELETE : http://109.123.238.13:2024/logout
+DELETE : http://109.123.238.13:2024/users/id
+```
+
+#### LOGIN dan CRUD BARANG
+```console
+GET : http://109.123.238.13:2024/barangs
+GET : http://109.123.238.13:2024/barangs/id
+PATCH : http://109.123.238.13:2024/barangs/id
+POST : http://109.123.238.13:2024/barangs
+DELETE : http://109.123.238.13:2024/barangs/id
+```
+
+#### LOGIN dan CRUD JASA BARANG
+```console
+GET : http://109.123.238.13:2024/jbarangs
+GET : http://109.123.238.13:2024/jbarangs/id
+PATCH : http://109.123.238.13:2024/jbarangs/id
+POST : http://109.123.238.13:2024/jbarangs
+DELETE : http://109.123.238.13:2024/jbarangs/id
+```
+
 ### buka cmd atau terminal dan ketik npm install
 
 [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
