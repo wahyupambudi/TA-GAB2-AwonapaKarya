@@ -6,6 +6,8 @@ import App from './App';
 import "bulma/css/bulma.css";
 import axios from "axios";
 
+// Mensetting default credentials 
+// Agar setiap Request kita Lakukan ke Server selalu Menyertakan Credentialsnya 
 axios.defaults.withCredentials = true;
 
 const container = document.getElementById('root');

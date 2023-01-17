@@ -1,8 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { IoPerson, IoPricetag, IoHome, IoLogOut } from "react-icons/io5";
+import { NavLink, useNavigate } from "react-router-dom";
+import { IoPerson, IoHome, } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../features/authSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    navigate("/");
+  };
+
   return (
     <div>
       <aside class="menu pl-2 has-shadow">
@@ -15,22 +27,24 @@ const Sidebar = () => {
   <p class="menu-label">
     Administration
   </p>
-  <ul class="menu-list">
-    <li>
-      <a class=""><IoPerson/> Manage Users</a>
-      <ul>
-        <li><NavLink to={"/admin"}>Admin</NavLink></li>
-        <li><NavLink to={"/operator"}>Operator</NavLink></li>
-        <li><NavLink to={"/kajur"}>Ketua Jurusan</NavLink></li>
-      </ul>
-    </li>
-  </ul>
+  {user && user.role === "admin" && (
+          <div>
+            <p className="menu-label">Admin</p>
+            <ul className="menu-list">
+              <li>
+                <NavLink to={"/users"}>
+                  <IoPerson /> Users
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        )}
   <p class="menu-label">
     Belanja
   </p>
   <ul class="menu-list">
-    <li><NavLink to={"/barangm"}>Barang Modal</NavLink></li>
-    <li><a>Habis Pakai</a></li>
+    <li><NavLink to={"/barangs"}>Barang Modal</NavLink></li>
+    <li><NavLink to={"/barang"}>Habis Pakai</NavLink></li>
   </ul>
 </aside>
     </div>
