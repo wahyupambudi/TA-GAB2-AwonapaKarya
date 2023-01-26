@@ -1,12 +1,13 @@
+//import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Login from "./component/Login";
-import Users from "./pages/Users";
-import Barangs from "./pages/Barangs";
-import AddUser from "./pages/AddUser";
-import EditUser from "./pages/EditUser";
-import AddBarangs from "./pages/AddBarangs";
-import EditBarangs from "./pages/EditBarangs";
+import Login from './component/Login';
+import Header from './component/Header';
+import Home from './component/Home';
+import SideNav from './component/SideNav';
+import Footer from './component/Footer';
+//import './App.css';
+import Dashboard from "./pgs/Dashboard";
+import Users from "./pgs/Users";
 
 function App() {
   return (
@@ -14,13 +15,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/header" element={<Header />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/users/add" element={<AddUser />} />
-          <Route path="/users/edit/:id" element={<EditUser />} />
-          <Route path="/barangs" element={<Barangs />} />
-          <Route path="/barangs/add" element={<AddBarangs />} />
-          <Route path="/barangs/edit/:id" element={<EditBarangs />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/sidenav" element={<SideNav />} />
+          <Route path="/footer" element={<Footer />} />
         </Routes>
       </BrowserRouter>
     </div>
