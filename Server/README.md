@@ -32,6 +32,15 @@ store.sync();
 
 #### HTTP Request Client
 #### LOGIN dan CRUD USER
+
+#### akun email dan password
+jika ingin melakukan crud data user dapat login dengan akun admin
+```console
+admin : wahyu@gmail.com - 12345678
+opertor: adam@gmail.com - 12345678
+ketuajurusan : budi@gmail.com - 12345678
+```
+
 ```console
 GET : http://52.199.149.14:2024/users
 PATCH : http://52.199.149.14:2024/users/id
