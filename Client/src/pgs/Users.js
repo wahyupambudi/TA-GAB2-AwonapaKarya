@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Userlist from '../component/Userlist'
+import Userlist from '../component/Userlist';
 import { getMe } from "../feature/authSlice";
 import Layout from './Layout';
 
@@ -18,7 +18,8 @@ const Users = () => {
         if (isError) {
         navigate("/");
         }
-        if (user && user.role !== "admin") {
+        if (user && user.user.role !== "admin") {
+          console.log(user.user.role);
         navigate("/dashboard");
         }
     }, [isError, user, navigate]);
