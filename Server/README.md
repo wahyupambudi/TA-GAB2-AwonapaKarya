@@ -1,45 +1,44 @@
 # server-expressjs
 Make REST API SERVER with ExpressJS
 
-# rest-api-server-expressjs
-
-REST API Server with Express JS
-
-```js
-const caraPakai = "buka cmd atau terminal, kemudian ketik :";
-const perintah = "npm install";
-console.log(caraPakai + perintah);
-```
-
 #### HTTP Request Client
 #### LOGIN dan CRUD USER
-```console
-GET : http://109.123.238.13:2024/users
-PATCH : http://109.123.238.13:2024/users/id
-POST : http://109.123.238.13:2024/users
 
-POST : http://109.123.238.13:2024/login
-GET : http://109.123.238.13:2024/sessi
-DELETE : http://109.123.238.13:2024/logout
-DELETE : http://109.123.238.13:2024/users/id
+#### akun email dan password
+jika ingin melakukan crud data user dapat login dengan akun admin
+```console
+admin : wahyu@gmail.com - 12345678
+opertor: adam@gmail.com - 12345678
+ketuajurusan : budi@gmail.com - 12345678
+```
+
+```console
+GET : http://52.199.149.14:2024/users
+PATCH : http://52.199.149.14:2024/users/id
+POST : http://52.199.149.14:2024/users
+
+POST : http://52.199.149.14:2024/login
+GET : http://52.199.149.14:2024/sessi
+DELETE : http://52.199.149.14:2024/logout
+DELETE : http://52.199.149.14:2024/users/id
 ```
 
 #### LOGIN dan CRUD BARANG
 ```console
-GET : http://109.123.238.13:2024/barangs
-GET : http://109.123.238.13:2024/barangs/id
-PATCH : http://109.123.238.13:2024/barangs/id
-POST : http://109.123.238.13:2024/barangs
-DELETE : http://109.123.238.13:2024/barangs/id
+GET : http://52.199.149.14:2024/barangs
+GET : http://52.199.149.14:2024/barangs/id
+PATCH : http://52.199.149.14:2024/barangs/id
+POST : http://52.199.149.14:2024/barangs
+DELETE : http://52.199.149.14:2024/barangs/id
 ```
 
 #### LOGIN dan CRUD JASA BARANG
 ```console
-GET : http://109.123.238.13:2024/jbarangs
-GET : http://109.123.238.13:2024/jbarangs/id
-PATCH : http://109.123.238.13:2024/jbarangs/id
-POST : http://109.123.238.13:2024/jbarangs
-DELETE : http://109.123.238.13:2024/jbarangs/id
+GET : http://52.199.149.14:2024/jbarangs
+GET : http://52.199.149.14:2024/jbarangs/id
+PATCH : http://52.199.149.14:2024/jbarangs/id
+POST : http://52.199.149.14:2024/jbarangs
+DELETE : http://52.199.149.14:2024/jbarangs/id
 ```
 
 ### buka cmd atau terminal dan ketik npm install
