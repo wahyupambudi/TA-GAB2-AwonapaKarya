@@ -1,35 +1,6 @@
 # server-expressjs
 Make REST API SERVER with ExpressJS
 
-# rest-api-server-expressjs
-
-#### REST API Server with Express JS
-#### cara install di local
-* Clone Repo Server
-* Lakukan perintah ``` npm install ```
-* jika belum memiliki database, buat dulu database ``` db_pwbs_awonapakarya ```
-* jika sudah dapat melakukan import database ke phpMyAdmin atau dapat melakukan perubahan pada code index.js sebagai berikut :
-* hilangkan komentar pada code berikut :
-
-```js
-// (async () => {
-//   await db.sync();
-// })();
-
-// store.sync();
-```
-* Menjadi seperti ini 
-
-```js
-(async () => {
-  await db.sync();
-})();
-
-store.sync();
-```
-* Kemudian jalankan kembali ``` nodemon start ```
-* maka proses pembuatan table akan dilakukan.
-
 #### HTTP Request Client
 #### LOGIN dan CRUD USER
 
